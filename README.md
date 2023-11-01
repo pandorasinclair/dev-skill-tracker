@@ -68,3 +68,14 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### `Prettier setup`
+
+Um Prettier richtig einzustellen in VSCode "STRG + Shift + P" dann "Open User Settings (JSON)" öffnen und dort Programmiersprachen spezifisch folgendes hinzufügen z.B
+
+```
+"[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+```

@@ -4,9 +4,8 @@ import { skills } from "./data/skills";
 function App() {
   console.log(skills);
   const list = skills.map((skill) => (
-    <li>
-      {skill.name}
-      {skill.level}
+    <li key={skills.id}>
+      {skill.name}: {skill.level} --- {skill.created}
     </li>
   ));
   return (

@@ -2,7 +2,6 @@ import "./App.css";
 import { skills } from "./data/skills";
 
 function App() {
-  console.log(skills);
   const list = skills.map((skill) => (
     <li key={skills.id}>
       {skill.name}: {skill.level} --- {skill.created}

@@ -30,8 +30,7 @@ function SkillForm() {
           value={skillname}
           onChange={handleSkillnameChange}
         />
-        <span style={{ color: "red" }}>{validationMessage}</span>
-        <br />
+        <p className="error"> {validationMessage}</p>
         <button type="button" onClick={handleCreateSkill}>
           Erstellen
         </button>

@@ -1,8 +1,4 @@
-export type Skill = {
-  id: number;
-  name: string;
-  level: number;
-};
+import { Skill } from './types/skill';
 
 export default function TestTypeScript() {
   const mySkill: Skill = {

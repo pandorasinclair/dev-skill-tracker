@@ -1,8 +1,9 @@
 import "./App.css";
 import { skills } from "./data/skills";
+import { Skill } from "./types/skill";
 
 function App() {
-  const tablerows = skills.map((skill) => (
+  const tablerows = skills.map((skill: Skill) => (
     <tr>
       <td>{skill.name}</td>
       <td>{skill.level}</td>
@@ -10,7 +11,7 @@ function App() {
     </tr>
   ));
 
-  function convertDate(date) {
+  function convertDate(date: Date): string {
     const day = date.getDate().toString().padStart(2, "0");
     const month = (date.getMonth() + 1).toString().padStart(2, "0");
     const year = date.getFullYear();

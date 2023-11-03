@@ -5,6 +5,7 @@ export default function TestTypeScript() {
     id: 1,
     name: 'TypeScript',
     level: 1,
+    created: new Date('2023-11-01')
   };
 
   console.log('TypeScript: skill:', mySkill);

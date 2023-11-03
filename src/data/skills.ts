@@ -1,4 +1,6 @@
-export const skills = [
+import { Skill } from "../types/skill";
+
+export const skills: Skill[] = [
   {
     id: 1,
     name: "HTML",

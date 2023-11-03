@@ -2,10 +2,12 @@ import "./App.css";
 import { skills } from "./data/skills";
 
 function App() {
-  const list = skills.map((skill) => (
-    <li key={skills.id}>
-      {skill.name}: {skill.level} --- {convertDate(skill.created)}
-    </li>
+  const tablerows = skills.map((skill) => (
+    <tr>
+      <td>{skill.name}</td>
+      <td>{skill.level}</td>
+      <td>{convertDate(skill.created)}</td>
+    </tr>
   ));
 
   function convertDate(date) {
@@ -21,7 +23,16 @@ function App() {
   return (
     <>
       <h1>dev skill tracker</h1>
-      <ul>{list}</ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Skill</th>
+            <th>Level</th>
+            <th>Started</th>
+          </tr>
+        </thead>
+        <tbody>{tablerows}</tbody>
+      </table>
     </>
   );
 }

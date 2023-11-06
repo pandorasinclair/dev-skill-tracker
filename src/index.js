@@ -1,17 +1,16 @@
 import ReactDOM from "react-dom/client";
-import TestTypeScript from "./TestTypeScript";
 import reportWebVitals from "./reportWebVitals";
 import React from "react";
 import "./index.css";
 import App from "./App";
-import SkillForm from "./components/skillformular";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
-    <TestTypeScript />
-    <SkillForm />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 

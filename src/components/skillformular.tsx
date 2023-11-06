@@ -4,7 +4,7 @@ function SkillForm() {
   const [skillname, setSkillname] = useState("");
   const [validationMessage, setValidationMessage] = useState("");
 
-  const handleSkillnameChange = (event) => {
+  const handleSkillnameChange = (event: any) => {
     setSkillname(event.target.value);
   };
 
@@ -25,7 +25,7 @@ function SkillForm() {
         <input
           type="text"
           id="skillname"
-          maxLength="30"
+          maxLength={30}
           required
           value={skillname}
           onChange={handleSkillnameChange}

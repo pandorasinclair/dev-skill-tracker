@@ -1,10 +1,10 @@
-import React from "react"
+import React from "react";
 import { skills } from "../data/skills";
 import { Skill } from "../types/skill";
 import { Link } from "react-router-dom";
 
-function SkillsOverview(){
-const tablerows = skills.map((skill: Skill) => (
+function SkillsOverview() {
+  const tablerows = skills.map((skill: Skill) => (
     <tr>
       <td>{skill.name}</td>
       <td>{skill.level}</td>
@@ -22,24 +22,24 @@ const tablerows = skills.map((skill: Skill) => (
     return formattedDate;
   }
 
-return(
+  return (
     <div>
-        <h1>dev skill tracker</h1>
-        <table>
+      <h1>dev skill tracker</h1>
+      <table>
         <thead>
-            <tr>
+          <tr>
             <th>Skill</th>
             <th>Level</th>
             <th>Started</th>
-            </tr>
+          </tr>
         </thead>
         <tbody>{tablerows}</tbody>
-        </table>
-        <Link to="/skills/create">
-          <button>Create Skill</button>
-        </Link>
+      </table>
+      <Link to="/skills/create">
+        <button>Create Skill</button>
+      </Link>
     </div>
-)
+  );
 }
 
 export default SkillsOverview;

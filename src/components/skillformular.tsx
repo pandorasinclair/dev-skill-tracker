@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { skills } from "../data/skills";
+import { v4 as uuidv4 } from "uuid";
 
 function SkillForm() {
   const [skillname, setSkillname] = useState("");
@@ -14,7 +16,32 @@ function SkillForm() {
       setValidationMessage("Bitte fülle das Feld aus");
     } else {
       setValidationMessage("");
-      console.log({ skillname }); // Gibt den Skill als Objekt in der Konsole aus
+      const localSkills: string | null = window.localStorage.getItem("skills");
+      if (localSkills != null) {
+        const existingSkills = JSON.parse(localSkills);
+        console.log(existingSkills);
+        const newSkill = {
+          id: uuidv4(),
+          name: skillname,
+          level: 0,
+          created: new Date(),
+        };
+        const updatedSkillList = [...existingSkills, newSkill];
+        window.localStorage.setItem("skills", JSON.stringify(updatedSkillList));
+        console.log(updatedSkillList);
+      } else {
+        const newSkill = {
+          id: uuidv4(),
+          name: skillname,
+          level: 0,
+          created: new Date(),
+        };
+        const updatedSkillList = [newSkill];
+        window.localStorage.setItem("skills", JSON.stringify(updatedSkillList));
+      }
+
+      //console.log(updatedSkillList);
+      //console.log(JSON.stringify(updatedSkillList));
     }
   };
 
@@ -34,7 +61,7 @@ function SkillForm() {
         <p className="error"> {validationMessage}</p>
         <Link to="/skills">
           <button type="button" onClick={handleCreateSkill}>
-            Erstellen
+            Speichern
           </button>
         </Link>
       </form>

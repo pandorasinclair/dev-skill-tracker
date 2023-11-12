@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { skillsPath } from "../config";
 
 function SkillForm() {
   const [skillname, setSkillname] = useState("");
@@ -33,7 +32,7 @@ function SkillForm() {
           onChange={handleSkillnameChange}
         />
         <p className="error"> {validationMessage}</p>
-        <Link to={skillsPath}>
+        <Link to="/skills">
           <button type="button" onClick={handleCreateSkill}>
             Erstellen
           </button>

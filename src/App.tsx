@@ -4,23 +4,22 @@ import TestTypeScript from "./TestTypeScript";
 import Diary from "./components/Diary";
 import { Routes, Route, Link } from "react-router-dom";
 import SkillsOverview from "./components/SkillsOverview";
-import { createSkillsPath, diaryPath, skillsPath } from "./config";
 
 function App() {
   return (
     <>
       <div className="App">
         <nav className="nav">
-          <Link to={skillsPath} className="nav-item">
+          <Link to="/skills" className="nav-item">
             Skills Overview
           </Link>
-          <Link to={diaryPath} className="nav-item">
+          <Link to="/diary" className="nav-item">
             Diary
           </Link>
         </nav>
         <Routes>
           <Route
-            path={skillsPath}
+            path="/skills"
             element={
               <>
                 <SkillsOverview />
@@ -28,8 +27,8 @@ function App() {
               </>
             }
           />
-          <Route path={createSkillsPath} element={<SkillForm />} />
-          <Route path={diaryPath} element={<Diary />} />
+          <Route path="/skills/create" element={<SkillForm />} />
+          <Route path="/diary" element={<Diary />} />
         </Routes>
       </div>
     </>

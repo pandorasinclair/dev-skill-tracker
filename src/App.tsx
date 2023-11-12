@@ -4,7 +4,7 @@ import TestTypeScript from "./TestTypeScript";
 import Diary from "./components/Diary";
 import { Routes, Route, Link } from "react-router-dom";
 import SkillsOverview from "./components/SkillsOverview";
-import { createSkillsPath, diaryPath, skillsPath } from "./config";
+import { createSkillsPath, diaryPath, skillsPath } from "./app-paths";
 
 function App() {
   return (

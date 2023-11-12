@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { skillsPath } from "../config";
+import { skillsPath } from "../app-paths";
 
 function SkillForm() {
   const [skillname, setSkillname] = useState("");

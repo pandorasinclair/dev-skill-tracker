@@ -2,7 +2,7 @@ import React from "react";
 import { skills } from "../data/skills";
 import { Skill } from "../types/skill";
 import { Link } from "react-router-dom";
-import { createSkillsPath } from "../config";
+import { createSkillsPath } from "../app-paths";
 
 function SkillsOverview() {
   const tablerows = skills.map((skill: Skill) => (

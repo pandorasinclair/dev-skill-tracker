@@ -1,15 +1,20 @@
 import React from "react";
-import { skills } from "../data/skills";
 import { Skill } from "../types/skill";
 import { Link } from "react-router-dom";
 import { createSkillsPath } from "../app-paths";
 
 function SkillsOverview() {
+  const updatedSkillList: string | null = window.localStorage.getItem("skills");
+  let skills: Skill[] = [];
+  if (updatedSkillList != null) {
+    skills = JSON.parse(updatedSkillList);
+  }
+  console.log(skills);
   const tablerows = skills.map((skill: Skill) => (
     <tr>
       <td>{skill.name}</td>
       <td>{skill.level}</td>
-      <td>{convertDate(skill.created)}</td>
+      <td>{convertDate(new Date(skill.created))}</td>
     </tr>
   ));
 

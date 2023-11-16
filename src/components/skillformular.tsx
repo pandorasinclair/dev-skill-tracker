@@ -33,7 +33,11 @@ function SkillForm() {
         />
         <p className="error"> {validationMessage}</p>
         <Link to="/skills">
-          <button type="button" onClick={handleCreateSkill}>
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={handleCreateSkill}
+          >
             Erstellen
           </button>
         </Link>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function SkillForm() {
   const [skillname, setSkillname] = useState("");
@@ -31,9 +32,15 @@ function SkillForm() {
           onChange={handleSkillnameChange}
         />
         <p className="error"> {validationMessage}</p>
-        <button type="button" onClick={handleCreateSkill}>
-          Erstellen
-        </button>
+        <Link to="/skills">
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={handleCreateSkill}
+          >
+            Erstellen
+          </button>
+        </Link>
       </form>
     </div>
   );

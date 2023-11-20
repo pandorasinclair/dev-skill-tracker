@@ -1,6 +1,7 @@
 import React from "react"
 import { skills } from "../data/skills";
 import { Skill } from "../types/skill";
+import { Link } from "react-router-dom";
 
 function SkillsOverview(){
 const tablerows = skills.map((skill: Skill) => (
@@ -34,6 +35,9 @@ return(
         </thead>
         <tbody>{tablerows}</tbody>
         </table>
+        <Link to="/skills/create">
+          <button>Create Skill</button>
+        </Link>
     </div>
 )
 }

@@ -1,8 +1,6 @@
 import { Skill } from "../types/skill";
+import { v4 as uuidv4 } from "uuid";
 
-/**
- * Diese Funktion gibt eine Liste der aktuellen Skills zurück. Wenn keine Skills vorhanden sind, dann ist die Liste leer.
- */
 export function getCurrentSkills(): Skill[] {
   const updatedSkillList: string | null = window.localStorage.getItem("skills");
   let skills: Skill[] = [];
@@ -16,4 +14,16 @@ export function getCurrentSkills(): Skill[] {
     }
   }
   return skills;
+}
+export function addSkill(skillname: string): void {
+  const newSkill: Skill = {
+    id: uuidv4(),
+    name: skillname,
+    level: 0,
+    created: new Date(),
+  };
+
+  const localSkills: Skill[] = getCurrentSkills();
+  const updatedSkillList = [...localSkills, newSkill];
+  window.localStorage.setItem("skills", JSON.stringify(updatedSkillList));
 }

@@ -35,7 +35,6 @@ function SkillForm() {
         <Link to="/skills">
           <button
             type="button"
-            className="btn btn-primary"
             onClick={handleCreateSkill}
           >
             Erstellen

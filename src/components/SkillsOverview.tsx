@@ -1,17 +1,23 @@
 import React from "react";
 import { Skill } from "../types/skill";
 import { Link } from "react-router-dom";
-import { skillsPath } from "../app-paths";
+import { createSkillsPath } from "../app-paths";
 
 function SkillsOverview() {
   const updatedSkillList: string | null = window.localStorage.getItem("skills");
   let skills: Skill[] = [];
-  if (updatedSkillList != null) {
-    skills = JSON.parse(updatedSkillList);
+  
+  if (updatedSkillList !== null) {
+    const parsedSkills = JSON.parse(updatedSkillList);
+    if (Array.isArray(parsedSkills)) {
+      skills = parsedSkills;
+    } else {
+      console.error("Skills data is not an array.");
+    }
   }
-  console.log(skills);
+
   const tablerows = skills.map((skill: Skill) => (
-    <tr>
+    <tr key={skill.id}>
       <td>{skill.name}</td>
       <td>{skill.level}</td>
       <td>{convertDate(new Date(skill.created))}</td>
@@ -41,7 +47,7 @@ function SkillsOverview() {
         </thead>
         <tbody>{tablerows}</tbody>
       </table>
-      <Link to={skillsPath}>
+      <Link to={createSkillsPath}>
         <button>Create Skill</button>
       </Link>
     </div>

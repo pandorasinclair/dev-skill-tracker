@@ -1,6 +1,7 @@
 import React from "react";
 import { Skill } from "../types/skill";
 import { Link } from "react-router-dom";
+import { skillsPath } from "../app-paths";
 
 function SkillsOverview() {
   const updatedSkillList: string | null = window.localStorage.getItem("skills");
@@ -40,7 +41,7 @@ function SkillsOverview() {
         </thead>
         <tbody>{tablerows}</tbody>
       </table>
-      <Link to="/skills/create">
+      <Link to={skillsPath}>
         <button>Create Skill</button>
       </Link>
     </div>

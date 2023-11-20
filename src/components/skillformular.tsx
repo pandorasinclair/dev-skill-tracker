@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { skills } from "../data/skills";
 import { v4 as uuidv4 } from "uuid";
+import { skillsPath } from "../app-paths";
 
 function SkillForm() {
   const [skillname, setSkillname] = useState("");
@@ -39,9 +40,6 @@ function SkillForm() {
         const updatedSkillList = [newSkill];
         window.localStorage.setItem("skills", JSON.stringify(updatedSkillList));
       }
-
-      //console.log(updatedSkillList);
-      //console.log(JSON.stringify(updatedSkillList));
     }
   };
 
@@ -59,7 +57,7 @@ function SkillForm() {
           onChange={handleSkillnameChange}
         />
         <p className="error"> {validationMessage}</p>
-        <Link to="/skills">
+        <Link to={skillsPath}>
           <button type="button" onClick={handleCreateSkill}>
             Speichern
           </button>

@@ -1,21 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import { Link } from "react-router-dom";
 import { skillsPath } from "../app-paths";
+import {addSkill} from "../services/skill.service";
 
-function SkillForm() {
-  const [skillname, setSkillname] = useState("");
-  const [validationMessage, setValidationMessage] = useState("");
+const SkillForm: React.FC = () => {
+  const [skillname, setSkillname] = useState<string>("");
+  const [validationMessage, setValidationMessage] = useState<string>("");
 
-  const handleSkillnameChange = (event: any) => {
+  const handleSkillnameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSkillname(event.target.value);
+    setValidationMessage("");
   };
 
   const handleCreateSkill = () => {
-    if (skillname.length === 0) {
+
+    if (skillname === null) {
       setValidationMessage("Bitte fülle das Feld aus");
     } else {
+      setSkillname("");
       setValidationMessage("");
-      console.log({ skillname }); // Gibt den Skill als Objekt in der Konsole aus
+      addSkill(skillname);
     }
   };
 
@@ -32,15 +36,15 @@ function SkillForm() {
           value={skillname}
           onChange={handleSkillnameChange}
         />
-        <p className="error"> {validationMessage}</p>
+        <p className="error">{validationMessage}</p>
         <Link to={skillsPath}>
           <button type="button" onClick={handleCreateSkill}>
-            Erstellen
+            Speichern
           </button>
         </Link>
       </form>
     </div>
   );
-}
+};
 
 export default SkillForm;

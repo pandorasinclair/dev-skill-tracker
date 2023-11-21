@@ -1,15 +1,16 @@
 import React from "react";
-import { skills } from "../data/skills";
 import { Skill } from "../types/skill";
 import { Link } from "react-router-dom";
 import { createSkillsPath } from "../app-paths";
+import { getCurrentSkills } from "../services/skill.service";
 
 function SkillsOverview() {
+  const skills:Skill[] = getCurrentSkills();
   const tablerows = skills.map((skill: Skill) => (
-    <tr>
+    <tr key={skill.id}>
       <td>{skill.name}</td>
       <td>{skill.level}</td>
-      <td>{convertDate(skill.created)}</td>
+      <td>{convertDate(new Date(skill.created))}</td>
     </tr>
   ));
 

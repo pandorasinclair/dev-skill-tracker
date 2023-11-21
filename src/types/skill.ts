@@ -1,5 +1,5 @@
 export type Skill = {
-  id: number;
+  id: string;
   name: string;
   level: number;
   created: Date;

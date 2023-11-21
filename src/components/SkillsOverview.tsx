@@ -6,8 +6,6 @@ import { getCurrentSkills } from "../services/skill.service";
 
 function SkillsOverview() {
   const skills:Skill[] = getCurrentSkills();
-  /**/
-  console.log(skills);
   const tablerows = skills.map((skill: Skill) => (
     <tr key={skill.id}>
       <td>{skill.name}</td>

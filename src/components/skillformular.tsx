@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { skillsPath } from "../app-paths";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { skillsPath } from '../app-paths';
 
 function SkillForm() {
-  const [skillname, setSkillname] = useState("");
-  const [validationMessage, setValidationMessage] = useState("");
+  const [skillname, setSkillname] = useState('');
+  const [validationMessage, setValidationMessage] = useState('');
 
   const handleSkillnameChange = (event: any) => {
     setSkillname(event.target.value);
@@ -12,9 +12,9 @@ function SkillForm() {
 
   const handleCreateSkill = () => {
     if (skillname.length === 0) {
-      setValidationMessage("Bitte fülle das Feld aus");
+      setValidationMessage('Bitte fülle das Feld aus');
     } else {
-      setValidationMessage("");
+      setValidationMessage('');
       console.log({ skillname }); // Gibt den Skill als Objekt in der Konsole aus
     }
   };
@@ -34,7 +34,11 @@ function SkillForm() {
         />
         <p className="error"> {validationMessage}</p>
         <Link to={skillsPath}>
-          <button type="button" onClick={handleCreateSkill}>
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={handleCreateSkill}
+          >
             Erstellen
           </button>
         </Link>
